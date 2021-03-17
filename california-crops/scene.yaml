@@ -70,7 +70,7 @@ sources:
         type: Raster
         url: https://1.aerial.maps.api.here.com/maptile/2.1/basetile/newest/satellite.day/{z}/{x}/{y}/256/png8?app_id=KwLXbg6LOTkhaYvdwXTT&app_code=2GPgUXdpheikFj24EYQVTw
 
-    _xyz_crops_polygon:
+    _xyz_crops_polygon_tags:
         url: https://xyz.api.here.com/hub/spaces/mJhQSETo/tile/web/{z}_{x}_{y}
         type: GeoJSON
         min_zoom: 10
@@ -80,13 +80,11 @@ sources:
             # margin: 0
             p.Crop2014!: undefined
             selection: p.Crop2014,p.Acres
-            tweaks: simplification
-            tweaks.algorithm: simplified
-            tweaks.strength: low
-            # mode: viz
+            mode: viz
+
             # limit: 50000 #
 
-    _xyz_crops_centroid:
+    _xyz_crops_centroid_tags:
         url: https://xyz.api.here.com/hub/spaces/mJhQSETo/tile/web/{z}_{x}_{y}
         type: GeoJSON
         min_zoom: 2
@@ -96,9 +94,7 @@ sources:
             # margin: 0
             p.crop2014!: undefined
             selection: p.crop2014
-            tweaks: simplification
-            tweaks.algorithm: simplified
-            tweaks.strength: low
+            mode: viz
             # limit: 50000 #
 
 styles:
@@ -116,7 +112,7 @@ layers:
         filter: function() { return $zoom >= 10 && feature['Crop2014'] !== 'Urban'}
 
         # enabled: false
-        data: {source: _xyz_crops_polygon}
+        data: {source: _xyz_crops_polygon_tags}
         draw:
             polygons:
                 interactive: true
@@ -130,8 +126,8 @@ layers:
     _xyz_points:
         filter: function() { return $zoom < 10 && feature['crop2014'] !== 'Urban'}
 
-        enabled: false
-        data: {source: _xyz_crops_centroid}
+        # enabled: false
+        data: {source: _xyz_crops_centroid_tags}
         draw:
             points:
                 interactive: true
@@ -147,7 +143,7 @@ layers:
         #filter: {$geometry: polygon}
 
         # enabled: false
-        data: {source: _xyz_crops_centroid}
+        data: {source: _xyz_crops_centroid_tags}
         filter: {$zoom: {min: 14}}
         draw:
             _text:

@@ -24,29 +24,42 @@ var customStyle = {
          {zIndex:0, type:"Polygon", opacity: 0.2, stroke:"#3288FF", fill: '#0000FF', strokeWidth:3},
          {zIndex:1, type:"Line", opacity: 1, stroke:"#3288FF", strokeWidth:3}
       ],
+      // 'All_Alcohol': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'#3C4BF1', offsetY:-8}
+      // ],
+      // 'Malt_Wine': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'#50D05E', offsetY:-8}
+      // ],
+      // 'Malt_Wine_Liquor': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'#E265F0', offsetY:-8}
+      // ],
+      // 'Tavern': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'#EC3B43', offsetY:-8}
+      // ],
+      // 'Farmer': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'#8BFFF2', offsetY:-8}
+      // ],
+      // 'Other': [
+      //    {zLayer:1, zIndex:8, type:"Circle", radius: 8, fill:'yellow', offsetY:-8}
+      // ]
+
       'All_Alcohol': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#3D4BF1", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/all.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/all.png", width:32, height:32,offsetY:-16}
       ],
       'Malt_Wine': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#50D05E", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/malt.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/malt.png", width:32, height:32,offsetY:-16}
       ],
       'Malt_Wine_Liquor': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#E265F0", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/malt-liquor.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/malt-liquor.png", width:32, height:32,offsetY:-16}
       ],
       'Tavern': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#EC3B43", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/tavern.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/tavern.png", width:32, height:32,offsetY:-16}
       ],
       'Farmer': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#8BFFF2", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/farmer.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/farmer.png", width:32, height:32,offsetY:-16}
       ],
       'Other': [
-         {zLayer:1, zIndex:8, type:"Rect", stroke:"#00FFFF", width:1, height:24, offsetY:-17},
-         {zLayer:1, zIndex:8, type:"Image", src:"./icons/other.png", width:32, height:32,offsetY:-40}
+         {zLayer:1, zIndex:8, type:"Image", src:"./icons/other.png", width:32, height:32,offsetY:-16}
       ]
    },
    assign: function(feature){
@@ -140,7 +153,7 @@ var liquorLayer = new here.xyz.maps.layers.TileLayer({
    min: 1,
    max: 20,
    provider: new here.xyz.maps.providers.IMLProvider({
-      level: 10,
+      level: 3,
       layer: xyz.layer,
       catalog: xyz.catalogHrn,
       credentials: {
