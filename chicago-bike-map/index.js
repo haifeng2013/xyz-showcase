@@ -220,7 +220,7 @@ async function init() {
             return feature.properties.bikeroute == laneType
          })
       });
-
+      
       document.getElementById('clear').style.visibility = 'visible';
    }
 

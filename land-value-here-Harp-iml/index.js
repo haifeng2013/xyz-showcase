@@ -161,7 +161,7 @@ const dl_de = {
 const copyrights = [hereCopyrightInfo, dl_de];
 
 var Year = 2011;
-var urlParams = {apikey, 'p.Jahr': Year};
+var urlParams = {apikey, 'p.Jahr': Year, mode: 'viz', selection: 'p.BRW'};
 var dataSources = [];
 function addDataSource() {
     const brw = new harp.VectorTileDataSource({
